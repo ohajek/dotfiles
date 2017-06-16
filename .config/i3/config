@@ -1,0 +1,230 @@
+# i3 config file (v4)
+
+new_window pixel 4
+new_float pixel 4
+
+set $mod Mod4
+
+# Set floating by default
+#for_window [class="[.]*"] floating enable
+
+font pango:Source Code Pro for Powerline Medium 12
+
+# COLORS
+#base16-flat
+set $bg_color               #2C3E50
+set $inactive_bg_color      #2f343f
+set $text_color             #E0E0E0
+set $inactive_text_color    #00ff00
+set $urgent_bg_color        #E74C3C
+set $active_bg_color        #2C3E50
+#set $active_bg_color        #3498DB
+set $active_text_color      #3498DB
+
+#base16-ocean
+#set $bg_color               #2B303B
+#set $inactive_bg_color      #2f343f
+#set $text_color             #C0C5CE
+#set $inactive_text_color    #676E7D
+#set $urgent_bg_color        #BF616A
+#set $active_bg_color        #8FA1B3
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start rofi (a program launcher)
+# configured via Xresources
+bindsym $mod+d exec rofi -color-enabled -show run -lines 5 -eh 2 -width 100 -padding 400 -opacity "100" -bw 0  -font "Terminess Powerline 18"
+bindsym $mod+o exec rofi -color-enabled -show window -lines 5 -eh 2 -width 100 -padding 400 -opacity "100" -bw 0  -font "Terminess Powerline 18"
+
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+set $workspace1  "1:  ZSH "
+set $workspace2  "2:  CODE "
+set $workspace3  "3:  CHROMIUM "
+set $workspace4  "4:  FILES "
+set $workspace5  "5:  DOCUMENTS "
+set $workspace6  "6:  MEDIA "
+set $workspace7  "7:  DESIGN "
+set $workspace8  "8:  GENERAL "
+set $workspace9  "9:  SETTINGS "
+set $workspace10 "10:  STEAM "
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# Assign to workspace
+assign [class="Gvim"] $workspace3
+assign [class="Chromium"] $workspace3
+assign [class="Steam"] $workspace10
+assign [class="Evince"] $workspace5
+assign [class="LibreOffice"] $workspace5
+assign [class="Blender"] $workspace7
+assign [class="krita"] $workspace7
+assign [class="Lmms"] $workspace7
+assign [class="sunvox"] $workspace7
+assign [class="Nemo"] $workspace4
+assign [class="Wine"] $workspace8
+assign [class="PlayOnLinux"] $workspace8
+
+# Custom bindings
+bindsym $mod+q exec --no-startup-id google-chrome-stable  #Chromium
+bindsym $mod+space exec /usr/local/bin/changeLayout
+bindsym $mod+XF86AudioMute exec mpc toggle
+bindsym $mod+XF86AudioRaiseVolume exec mpc next
+bindsym $mod+XF86AudioLowerVolume exec mpc prev
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
+
+# STARTUP PROGRAMS
+exec --no-startup-id dropbox start
+exec --no-startup-id wicd-gtk --tray
+exec xrdb ~/.Xresources
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/landscape.jpg
+exec_always --no-startup-id compton
+#exec_always --no-startup-id compton --config ~/.config/compton.conf
+exec --no-startup-id mpd
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -f 'pango:Source Code Pro for Powerline Medium 10' -m 'Do you really want to exit?' -b ' Exit   ' 'i3-msg exit'"
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+smart_gaps on
+gaps inner 20
+gaps outer 5
+smart_borders on
+
+bar {
+        position top
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        workspace_buttons yes
+        strip_workspace_numbers yes
+        colors {
+            background $bg_color
+            separator $bg_color
+            statusline $text_color
+            focused_workspace $active_bg_color $active_bg_color $active_text_color
+            inactive_workspace $bg_color $bg_color $text_color
+            urgent_workspace    $urgent_bg_color $urgent_bg_color $bg_color
+        }
+}
+
+
+# Window colors     border              background          text                 indicator
+client.focused      $active_text_color           $active_text_color    $active_text_color   $active_bg_color
+client.urgent       $urgent_bg_color    $urgent_bg_color    $bg_color            $active_bg_color
+
+# Screen lock
+bindsym $mod+shift+x exec /usr/local/bin/lock
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ #unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- #unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec --no-startup-id /some/path/toggletouchpad.sh # toggle touchpad

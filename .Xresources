@@ -1,0 +1,40 @@
+#include </home/ohajek/.config/xcolors/tomorrow-night-eighties>
+!#include </home/ohajek/.config/xcolors/base16>
+
+URxvt*termName:                 rxvt-256color
+URxvt*font:                     xft:DroidSansMonoForPowerline NF:size=9
+!URxvt.depth:                    32
+URxvt*lineSpace:                0
+URxvt.letterSpace:              0
+URxvt.iso14755:                 false
+URxvt.iso14755_52:              false
+URxvt.scrollBar:                false
+URxvt*loginShell:               true
+!URxvt.internalBorder:           35
+!URxvt.perl-ext-common:          default,clipboard
+!URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+!URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.clipboard.autocopy:       true
+URxvt*buffered:                 false
+URxvt.keysym.Control-Up:     \033[1;5A
+URxvt.keysym.Control-Down:   \033[1;5B
+URxvt.keysym.Control-Left:   \033[1;5D
+URxvt.keysym.Control-Right:  \033[1;5C
+
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.font: Source Code Pro 16
+! Use extended color scheme
+rofi.color-enabled:                  true
+! Color scheme for normal row
+rofi.color-normal:                   argb:00000000,  #cccccc , argb:00000000,  #8FA1B3 ,  #1B2B34
+! Color scheme for urgent row
+rofi.color-urgent:                   argb:00000000,  #8FA1B3 , argb:00000000,  #8FA1B3 ,  #1B2B34
+! Color scheme for active row
+rofi.color-active:                   argb:00000000,  #8FA1B3 , argb:00000000,  ##8FA1B3 ,  #1B2B34
+! Color scheme window
+rofi.color-window:                   argb:ee222222,  #8FA1B3 ,  #8FA1B3
+! Separator style (none, dash, solid)
+rofi.separator-style:                solid

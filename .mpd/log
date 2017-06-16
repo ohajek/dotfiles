@@ -1,0 +1,37 @@
+Mar 31 01:58 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 31 01:58 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 01:58 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 01:58 : update: added /00 - A Dog's Life.mp3
+Mar 31 02:00 : client: [0] opened from 127.0.0.1:36634
+Mar 31 02:00 : client: [0] closed
+Mar 31 02:00 : client: [1] opened from 127.0.0.1:36638
+Mar 31 02:00 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:00 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:00 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:00 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:00 : player: problems opening audio device while playing "00 - A Dog's Life.mp3"
+Mar 31 02:00 : client: [1] closed
+Mar 31 02:01 : client: [2] opened from 127.0.0.1:36642
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : client: [2] closed
+Mar 31 02:01 : client: [3] opened from 127.0.0.1:36648
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : exception: Failed to enable output "MPD" [pulse]
+Mar 31 02:01 : exception: nested: pa_context_connect() has failed: Connection refused
+Mar 31 02:01 : client: [3] closed
