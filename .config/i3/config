@@ -122,6 +122,7 @@ assign [class="Steam"] $workspace10
 assign [class="Evince"] $workspace5
 assign [class="LibreOffice"] $workspace5
 assign [class="Blender"] $workspace7
+assign [class="Gimp"] $workspace7
 assign [class="krita"] $workspace7
 assign [class="Lmms"] $workspace7
 assign [class="sunvox"] $workspace7
