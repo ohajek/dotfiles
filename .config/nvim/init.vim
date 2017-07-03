@@ -10,19 +10,24 @@ call plug#begin('~/.vim/plugged')
     Plug 'rbgrouleff/bclose.vim'
     Plug 'Raimondi/delimitMate'
     Plug 'terryma/vim-multiple-cursors'
+    Plug 'Yggdroot/indentLine' 
     "Plug 'benekastah/neomake'
 
     "--- Completion ---
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
-    Plug 'Rip-Rip/clang_complete'
     Plug 'davidhalter/jedi'
     Plug 'w0rp/ale'
+    Plug 'Rip-Rip/clang_complete' "c/c++
+    Plug 'neovimhaskell/haskell-vim' "haskel
+    Plug 'sebastianmarkow/deoplete-rust' "rust
 
     "--- Colorschemes ---
     Plug 'chriskempson/base16-vim'
     Plug 'morhetz/gruvbox'
     Plug 'joshdick/onedark.vim'
+    Plug 'AlessandroYorba/Alduin'
+    Plug 'davidklsn/vim-sialoquent'
     Plug 'octol/vim-cpp-enhanced-highlight'
 
     "--- C++/OpenGL features---
@@ -183,11 +188,15 @@ set cursorline
 set mouse=a
 set background=dark
 let base16colorspace=256
-colorscheme base16-flat "base16-ocean Tomorrow-Night-Eighties
+colorscheme base16-default-dark
 set colorcolumn=79
 highlight Comment gui=italic
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "Enabling true colors
-set termguicolors "Enabling true colors
+ "Enabling true colors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"Neovim >= 0.1.5
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 "Invisible character colors
 highlight NonText guifg=#4a4a59
@@ -268,10 +277,10 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:WebDevIconsUnicodeDecorateFolderNodeDefaultSymbol = ''
+"let g:WebDevIconsUnicodeDecorateFolderNodeDefaultSymbol = ''
 
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['nerdtree'] = ''
+"let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['nerdtree'] = ''
 "---------------------------
 
 "--- Neomake ---
@@ -295,7 +304,21 @@ inoremap <silent><expr> <TAB>
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++14 -stdlib=libc++'
+let g:clang_close_preview = 1
+
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_concepts_highlight = 1
+
+"Rust deoplete
+let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/ohajek/.local/share/rust_src/rust/src'
+
+"Automatic colorscheming from base16 in zsh
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif

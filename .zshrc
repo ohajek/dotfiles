@@ -18,6 +18,8 @@ export TERM=xterm-256color
 ZSH_THEME="spaceship"
 #ZSH_THEME="agnoster"
 
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 #autoload -U promptinit; promptinit
 #prompt pure
 
